@@ -13,12 +13,12 @@ const getResult = (conn, query) => {
       else {
         resolve(null);
       }
-    })
-  })
-}
+    });
+  });
+};
 
 module.exports = {
-  getPool: () =>{
+  getPool: () => {
     if(!pool) {
       console.log('create connection pool');
       pool = mysql.createPool(DBConfig);
@@ -30,12 +30,12 @@ module.exports = {
     return new Promise((resolve, reject) => {
       pool.getConnection(async (err, conn) => {
         if(!err) {
-          resolve(await getResult(conn, query))
+          resolve(await getResult(conn, query));
         }
         else {
-          resolve(null)
+          resolve(null);
         }
-      })
-    })
+      });
+    });
   }
 }
