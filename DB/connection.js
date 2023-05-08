@@ -14,9 +14,9 @@ const getResult = (conn, query) => {
         resolve(null);
         // reject(err)
       }
-    })
-  })
-}
+    });
+  });
+};
 
 module.exports = {
   getPool: () => {
@@ -31,13 +31,13 @@ module.exports = {
     return new Promise((resolve, reject) => {
       pool.getConnection(async (err, conn) => {
         if(!err) {
-          resolve(await getResult(conn, query))
+          resolve(await getResult(conn, query));
         }
         else {
           resolve(null)
           // reject(err)
         }
-      })
-    })
+      });
+    });
   }
 }
