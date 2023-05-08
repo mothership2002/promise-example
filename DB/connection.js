@@ -12,15 +12,16 @@ const getResult = (conn, query) => {
       }
       else {
         resolve(null);
+        // reject(err)
       }
     })
   })
 }
 
 module.exports = {
-  getPool: () =>{
+  getPool: () => {
     if(!pool) {
-      console.log('create connection pool');
+      console.log('create connection pool...');
       pool = mysql.createPool(DBConfig);
     }
     return pool;
@@ -34,6 +35,7 @@ module.exports = {
         }
         else {
           resolve(null)
+          // reject(err)
         }
       })
     })
